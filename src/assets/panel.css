@@ -1,0 +1,43 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-align: center;
+}
+h1 {
+  margin-block: 0 0.5em;
+  padding: 0.2em 1em;
+  font-size: 1em;
+  box-shadow: 5px 2px 5px 0px rgba(0,0,0,0.75);
+}
+#toolbar {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-block: 1em;
+}
+#toolbar > .toolbar-item {
+  min-height: 1.3em;
+  white-space: nowrap;
+}
+.arrow {
+  font-size: 1.2em;
+}
+
+.inring :is(#back-btn, #posn-label, #next-btn) {
+  display: block;
+}
+.inring #jump-btn {
+  display: none;
+}
+body:not(.inring) #jump-btn {
+  display: block;
+}
+body:not(.inring) :is(#back-btn, #posn-label, #next-btn) {
+  display: none;
+}
