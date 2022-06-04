@@ -4,7 +4,6 @@ const MESSAGE_READY = "panelReady";
 
 class Panel {
   constructor() {
-    console.log("Panel constructor");
     this.ringData = null;
     document.body.addEventListener("click", this);
 
@@ -12,12 +11,7 @@ class Panel {
       console.log("onMessage:", message, sender);
       if (message.action == MESSAGE_DATA_UPDATE) {
         document.body.classList.remove("loading");
-        if (message.data) {
-          this.updateRingData(message.data);
-        }
-        if (message.currentUrl) {
-          this.updateActiveUrl(message.currentUrl);
-        }
+        this.updateRingData(message.data);
       }
     });
 
@@ -50,13 +44,10 @@ class Panel {
       data: value,
     });
   }
-  updateRingData(data) {
-    console.log("panel.js, got ring data:", data);
-    this.ringData = data;
-    this.scheduleRender();
-  }
-  updateActiveUrl(url) {
-    this.activeUrl = url;
+  updateRingData({ ringUrlIndex, ringUrlCount }) {
+    this.ringUrlIndex = ringUrlIndex;
+    this.ringUrlCount = ringUrlCount;
+    console.log("panel.js, got updateRingData:", this.ringUrlIndex);
     this.scheduleRender();
   }
   scheduleRender() {
@@ -66,13 +57,12 @@ class Panel {
   }
   render() {
     this._rafId = null;
+    const inRing = this.ringUrlIndex > -1;
     const posnLabel = document.getElementById("posn-label");
-    const urls = this.ringData ? Object.keys(this.ringData) : [];
-    const idx = this.activeUrl ? urls.indexOf(this.activeUrl) : -1;
 
-    document.body.classList.toggle("inring", idx >= 0);
-    if (idx > -1) {
-      posnLabel.textContent = `${idx} of ${urls.length}`;
+    document.body.classList.toggle("inring", inRing);
+    if (inRing) {
+      posnLabel.textContent = `${this.ringUrlIndex} of ${this.ringUrlCount}`;
     }
   }
 }

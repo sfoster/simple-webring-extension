@@ -40,11 +40,16 @@ const WebRing = new class _WebRing {
     });
     this.currentTabId = browser.tabs.getCurrent();
   }
+  get ringUrls() {
+    return Array.from(this.ringUrlsMap.keys());
+  }
   get currentUrlIndex() {
-    let urls = Array.from(this.ringUrlsMap.keys());
-    return this.currentUrl ? urls.indexOf(this.currentUrl) : -1;
+    return this.currentUrl ? this.ringUrls.indexOf(this.currentUrl) : -1;
   }
   onTabUpdated(tab) {
+    if (tab && tab.id) {
+      this.currentTabId = tab.id;
+    }
     if (tab && tab.url && this.currentUrl != tab.url) {
       this.changeCurrentUrl(tab.url);
     }
@@ -70,10 +75,10 @@ const WebRing = new class _WebRing {
         break;
       case "next":
         if (idx == -1) {
-          console.log("Can't go back, index is -1");
+          console.log("Can't go next, index is -1");
           return;
         }
-        idx = idx >= this.ringUrlsMap.size ? 0 : ++idx;
+        idx = idx >= this.ringUrlsMap.size -1 ? 0 : ++idx;
         this.navigateToRingIndex(idx);
         break;
       case "random":
@@ -82,9 +87,25 @@ const WebRing = new class _WebRing {
         break;
     }
   }
-  navigateToRingIndex(idx) {
-    let urls = Array.from(this.ringUrlsMap.keys());
-    console.log("TODO: switch tab to url:", urls[idx], idx);
+  async navigateToRingIndex(idx) {
+    let url = this.ringUrls[idx];
+    if (!url) {
+      console.log("navigateToRingIndex: no url at index", idx);
+      return;
+    }
+
+    let tabId = this.currentTabId;
+    console.log("navigateToRingIndex, loading url into tab:", url, tabId);
+    if (tabId && tabId !== browser.tabs.TAB_ID_NONE) {
+      try {
+        browser.tabs.update(tabId, {
+          highlighted: true,
+          url,
+        });
+      } catch (ex) {
+        console.warn("Failed to load ring url:", url, ex);
+      }
+    }
   }
   loadRingData() {
     return Promise.resolve({
@@ -109,8 +130,10 @@ const WebRing = new class _WebRing {
     if (this.panelUIReady) {
       browser.runtime.sendMessage({
         action: MESSAGE_DATA_UPDATE,
-        currentUrl: this.currentUrl,
-        data: Object.fromEntries(this.ringUrlsMap),
+        data: {
+          ringUrlIndex: this.currentUrlIndex,
+          ringUrlCount: this.ringUrls.length,
+        }
       });
     }
   }
