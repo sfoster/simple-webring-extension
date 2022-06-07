@@ -1,0 +1,3 @@
+window.config = {
+  "somekey": "somevalue",
+};
