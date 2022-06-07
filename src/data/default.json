@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "url": "https://searchfox.org/",
+      "who": "Sam"
+    },
+    {
+      "url": "https://bugzilla.mozilla.org/home",
+      "who": "Sam"
+    },
+    {
+      "url": "https://duckduckgo.com/",
+      "who": "Someone-Else"
+    }
+  ]
+}

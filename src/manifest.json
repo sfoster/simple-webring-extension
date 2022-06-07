@@ -28,7 +28,7 @@
   },
 
   "background": {
-    "scripts": ["/background.js"]
+    "scripts": ["/background.js", "/config.js"]
   },
 
   "permissions": ["tabs"]

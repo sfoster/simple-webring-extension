@@ -62,7 +62,7 @@ class Panel {
 
     document.body.classList.toggle("inring", inRing);
     if (inRing) {
-      posnLabel.textContent = `${this.ringUrlIndex} of ${this.ringUrlCount}`;
+      posnLabel.textContent = `${1+this.ringUrlIndex} of ${this.ringUrlCount}`;
     }
   }
 }
