@@ -100,6 +100,12 @@ class WebRingManager {
     if (url !== "about:blank") {
       this.currentUrl = url;
     }
+    let iconUrl = this.currentUrlIndex > -1 ?
+        browser.runtime.getURL("assets/rainbow.svg") :
+        browser.runtime.getURL("assets/icon.svg");
+    browser.browserAction.setIcon({
+      path: iconUrl
+    });
   }
   handleActionRequest(request) {
     let idx = this.currentUrlIndex;
