@@ -44,10 +44,10 @@ class Panel {
       data: value,
     });
   }
-  updateRingData({ ringUrlIndex, ringUrlCount }) {
-    this.ringUrlIndex = ringUrlIndex;
-    this.ringUrlCount = ringUrlCount;
-    console.log("panel.js, got updateRingData:", this.ringUrlIndex);
+  updateRingData({ ringURLIndex, ringURLCount }) {
+    this.ringURLIndex = ringURLIndex;
+    this.ringURLCount = ringURLCount;
+    console.log("panel.js, got updateRingData:", this.ringURLIndex);
     this.scheduleRender();
   }
   scheduleRender() {
@@ -57,12 +57,12 @@ class Panel {
   }
   render() {
     this._rafId = null;
-    const inRing = this.ringUrlIndex > -1;
+    const inRing = this.ringURLIndex > -1;
     const posnLabel = document.getElementById("posn-label");
 
     document.body.classList.toggle("inring", inRing);
     if (inRing) {
-      posnLabel.textContent = `${1+this.ringUrlIndex} of ${this.ringUrlCount}`;
+      posnLabel.textContent = `${1+this.ringURLIndex} of ${this.ringURLCount}`;
     }
   }
 }
