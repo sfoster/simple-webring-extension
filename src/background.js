@@ -5,10 +5,17 @@ const MESSAGE_READY = "panelReady";
 console.log("got window.config:", window.config);
 
 let webRingManager;
+let ringCollection;
 
-function initialize() {
+async function initialize() {
+  if (!ringCollection) {
+    ringCollection = window.ringCollection = new RingCollection(window.config.collectionURL);
+  }
   if (!webRingManager) {
-    webRingManager = new WebRingManager(window.config);
+    webRingManager = window.webRingManager = new WebRingManager({
+      ringCollection,
+      ...window.config
+    });
 
     browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       if (tab.active) {
@@ -38,32 +45,34 @@ class WebRingManager {
   isDataReady = false
   currentTabId = null
 
-  constructor(config) {
+  constructor({ ringCollection, ...config }) {
     this.config = config;
-    this.ringURLsMap = new Map();
+    this.ringCollection = ringCollection;
     console.log("WebRing constructor, got config:", config);
 
-    const dataLoaded = this.loadRingData().then((data) => {
-      if (data?.entries) {
-        for (let entry of data.entries) {
-          this.ringURLsMap.set(entry.url, entry);
-        }
-      }
-    });
     const gotCurrentTab = browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
       if (tabs[0]) {
         this.currentTabId= tabs[0].id;
       }
     });
+
+    const dataLoaded = ringCollection.fetchData();
     Promise.all([dataLoaded, gotCurrentTab]).then(() => {
       this.isDataReady = true;
       this.onRingDataUpdate();
       this.initialized = Date.now();
+    }).finally(() => {
+      console.log("WebRingManager, finally:", this.ringCollection.error);
+      if (this.ringCollection.error) {
+        this.updateIcon("error");
+      } else {
+        console.log("fetchData result:", this.ringCollection);
+      }
     })
   }
 
   get ringURLs() {
-    return Array.from(this.ringURLsMap.keys());
+    return Array.from(this.ringCollection.keys());
   }
   get currentURLIndex() {
     return this.currentURL ? this.ringURLs.indexOf(this.currentURL) : -1;
@@ -109,9 +118,20 @@ class WebRingManager {
     if (url !== "about:blank") {
       this.currentURL = url;
     }
-    let iconURL = this.currentURLIndex > -1 ?
-        browser.runtime.getURL("assets/rainbow.svg") :
-        browser.runtime.getURL("assets/icon.svg");
+    this.updateIcon(this.currentURLIndex > -1 ? "in-ring" : "default")
+  }
+  updateIcon(state) {
+    let iconURL;
+    switch (state) {
+      case "in-ring":
+        iconURL = browser.runtime.getURL("assets/rainbow.svg");
+        break;
+      case "error":
+        iconURL = browser.runtime.getURL("assets/error.svg");
+        break;
+      default:
+        iconURL = browser.runtime.getURL("assets/icon.svg");
+    }
     browser.browserAction.setIcon({
       path: iconURL
     });
@@ -126,7 +146,7 @@ class WebRingManager {
           console.log("Can't go back, index is -1");
           return;
         }
-        idx = idx > 0 ? --idx : this.ringURLsMap.size - 1;
+        idx = idx > 0 ? --idx : this.ringCollection.size - 1;
         this.navigateToRingIndex(idx);
         break;
       case "next":
@@ -134,11 +154,11 @@ class WebRingManager {
           console.log("Can't go next, index is -1");
           return;
         }
-        idx = idx >= this.ringURLsMap.size -1 ? 0 : ++idx;
+        idx = idx >= this.ringCollection.size -1 ? 0 : ++idx;
         this.navigateToRingIndex(idx);
         break;
       case "random":
-        idx = Math.floor(Math.random() * this.ringURLsMap.size);
+        idx = Math.floor(Math.random() * this.ringCollection.size);
         this.navigateToRingIndex(idx);
         break;
     }

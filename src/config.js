@@ -1,3 +1,3 @@
 window.config = {
-  "somekey": "somevalue",
+  collectionURL: "https://raw.githubusercontent.com/sfoster/simple-webring-extension/main/src/data/default.json"
 };
