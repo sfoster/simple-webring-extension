@@ -9,7 +9,7 @@ let ringCollection;
 
 async function initialize() {
   if (!ringCollection) {
-    ringCollection = window.ringCollection = new RingCollection(window.config.collectionURL);
+    ringCollection = window.ringCollection = new RingCollection(window.config);
   }
   if (!webRingManager) {
     webRingManager = window.webRingManager = new WebRingManager({
@@ -56,13 +56,16 @@ class WebRingManager {
       }
     });
 
-    const dataLoaded = ringCollection.fetchData();
-    Promise.all([dataLoaded, gotCurrentTab]).then(() => {
-      this.isDataReady = true;
+    const initialDataLoaded = ringCollection.watchRemoteData(() => {
+      // called whenever remote collection changes
+      console.log("watchRemoteData callback, calling onRingDataUpdate");
       this.onRingDataUpdate();
+    });
+
+    Promise.all([initialDataLoaded, gotCurrentTab]).then(() => {
+      this.isDataReady = true;
       this.initialized = Date.now();
     }).finally(() => {
-      console.log("WebRingManager, finally:", this.ringCollection.error);
       if (this.ringCollection.error) {
         this.updateIcon("error");
       } else {
@@ -183,29 +186,8 @@ class WebRingManager {
       }
     }
   }
-  async loadRingData() {
-    let dataURL = this.config.remoteDataURL;
-    let resp, data;
-    if (!dataURL) {
-      dataURL = browser.runtime.getURL("data/default.json");
-    }
-    console.log("loadRingData, fetching ", dataURL);
-    try {
-      resp = await fetch(dataURL);
-    } catch (ex) {
-      console.warn("Failed to fetch dataURL:", ex);
-    }
-    if (resp) {
-      try {
-        data = await resp.json();
-      } catch(ex) {
-        console.warn("Failed to parse JSON data:", ex);
-      }
-    }
-    console.log("loadRingData, returning ", data);
-    return data;
-  }
   onRingDataUpdate() {
+    // notify the panel if it has been opened already and has stale data
     if (this.panelUIReady) {
       browser.runtime.sendMessage({
         action: MESSAGE_DATA_UPDATE,
@@ -218,4 +200,3 @@ class WebRingManager {
   }
 }
 
-console.log("WebRing background.js");

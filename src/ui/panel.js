@@ -10,6 +10,7 @@ class Panel {
     browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log("onMessage:", message, sender);
       if (message.action == MESSAGE_DATA_UPDATE) {
+        console.log("Panel, got data update:", message.data);
         document.body.classList.remove("loading");
         this.updateRingData(message.data);
       }
