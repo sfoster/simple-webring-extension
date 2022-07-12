@@ -1,6 +1,16 @@
+:root {
+  --coral: hsl(0, 100%, 75%);
+  --peach: hsl(30, 100%, 75%);
+  --yellow: hsl(60, 100%, 75%);
+  --green: hsl(120, 100%, 75%);
+
+  --rainbow: linear-gradient(45deg, var(--coral), var(--peach) 15%, var(--yellow) 65%, var(--green) 100%);
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 body {
   display: flex;
@@ -29,6 +39,19 @@ h1 {
   font-size: 1.2em;
 }
 
+button {
+  background-color: var(--green);
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#posn-label {
+  padding: 0.3em;
+  font-size: 0.8em;
+}
+
 .inring :is(#back-btn, #posn-label, #next-btn) {
   display: block;
 }
@@ -36,7 +59,11 @@ h1 {
   display: none;
 }
 body:not(.inring) #jump-btn {
+  background: var(--rainbow);
+  border: 2px solid black;
+  border-radius: 5px;
   display: block;
+  padding: 0.5em;
 }
 body:not(.inring) :is(#back-btn, #posn-label, #next-btn) {
   display: none;
