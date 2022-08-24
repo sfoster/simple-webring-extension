@@ -2,21 +2,22 @@ const MESSAGE_ACTION = "ringAction";
 const MESSAGE_DATA_UPDATE = "dataUpdate";
 const MESSAGE_READY = "panelReady";
 
-console.log("got window.config:", window.config);
-
 let webRingManager;
 let ringCollection;
+let ringRegistry;
+let currentRingConfig;
+let isInitialized = false;
 
 async function initialize() {
-  if (!ringCollection) {
-    ringCollection = window.ringCollection = new RingCollection(window.config);
-  }
-  if (!webRingManager) {
+  console.log("initialize: got window.config:", window.config);
+
+  if (!isInitialized) {
+    ringRegistry = window.ringRegistry = new RingRegistry(window.config);
+    console.log("ringRegistry created");
+
     webRingManager = window.webRingManager = new WebRingManager({
-      ringCollection,
       ...window.config
     });
-
     browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       if (tab.active) {
         webRingManager?.onTabUpdated(tab);
@@ -33,7 +34,19 @@ async function initialize() {
     browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
       webRingManager?.onMessage(request, sender, sendResponse);
     });
+
+    await ringRegistry.fetchData();
+    isInitialized = true;
   }
+
+  console.log("ringRegistry data fetched, default entries:", ringRegistry.get("default"));
+
+  // TODO: we could store the current selected ring id and retrieve it here
+  currentRingConfig = ringRegistry.get(config.selectedRing);
+  ringCollection = window.ringCollection = new WatchedURLCollection(currentRingConfig, ringRegistry.dataURL);
+  console.log("ringCollection:", ringCollection);
+
+  await webRingManager.setRingCollection(ringCollection);
 }
 
 browser.runtime.onStartup.addListener(initialize);
@@ -47,22 +60,26 @@ class WebRingManager {
 
   constructor({ ringCollection, ...config }) {
     this.config = config;
-    this.ringCollection = ringCollection;
     console.log("WebRing constructor, got config:", config);
 
-    const gotCurrentTab = browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+    this.gotCurrentTab = browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
       if (tabs[0]) {
         this.currentTabId= tabs[0].id;
       }
     });
-
+  }
+  setRingCollection(ringCollection) {
+    if (this.ringCollection) {
+      this.ringCollection.reset();
+    }
+    this.ringCollection = ringCollection;
     const initialDataLoaded = ringCollection.watchRemoteData(() => {
       // called whenever remote collection changes
       console.log("watchRemoteData callback, calling onRingDataUpdate");
       this.onRingDataUpdate();
     });
 
-    Promise.all([initialDataLoaded, gotCurrentTab]).then(() => {
+    Promise.all([initialDataLoaded, this.gotCurrentTab]).then(() => {
       this.isDataReady = true;
       this.initialized = Date.now();
     }).finally(() => {
@@ -73,7 +90,6 @@ class WebRingManager {
       }
     })
   }
-
   get ringURLs() {
     return Array.from(this.ringCollection.keys());
   }
@@ -188,6 +204,7 @@ class WebRingManager {
   }
   onRingDataUpdate() {
     // notify the panel if it has been opened already and has stale data
+    console.log("onRingDataUpdate, ringURLs:", this.ringURLs);
     if (this.panelUIReady) {
       browser.runtime.sendMessage({
         action: MESSAGE_DATA_UPDATE,

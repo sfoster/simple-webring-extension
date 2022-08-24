@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "id": "default",
+      "title": "Example webring",
+      "collectionURL": "default.json",
+      "who": "Sam"
+    }
+  ]
+}
