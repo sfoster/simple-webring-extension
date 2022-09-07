@@ -26,7 +26,11 @@ function EventEmitterMixin(base) {
       }
       for (let listener of this._events.get(topic).values()) {
         try {
-          listener.apply(this, args);
+          if (typeof listener.handleTopic == "function") {
+            listener.handleTopic(topic, ...args);
+          } else {
+            listener.apply(this, args);
+          }
         } catch (e) {
           console.error(e);
         }
@@ -151,6 +155,7 @@ class RemoteMap extends EventEmitterMixin(Map) {
     return fetchedPromise;
   }
   reset() {
+    this._events.clear();
     this.clear();
   }
   populate(data) {

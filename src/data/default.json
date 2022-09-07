@@ -6,11 +6,10 @@
     },
     {
       "url": "https://bugzilla.mozilla.org/home",
-      "who": "Sam"
+      "who": "Someone-Else"
     },
     {
-      "url": "https://duckduckgo.com/",
-      "who": "Someone-Else"
+      "url": "https://duckduckgo.com/"
     }
   ]
 }

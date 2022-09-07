@@ -45,10 +45,10 @@ class Panel {
       data: value,
     });
   }
-  updateRingData({ ringURLIndex, ringURLCount }) {
+  updateRingData({ ringURLIndex, ringURLCount, entriesList }) {
     this.ringURLIndex = ringURLIndex;
     this.ringURLCount = ringURLCount;
-    console.log("panel.js, got updateRingData:", this.ringURLIndex);
+    this.entriesList = entriesList;
     this.scheduleRender();
   }
   scheduleRender() {
@@ -59,11 +59,18 @@ class Panel {
   render() {
     this._rafId = null;
     const inRing = this.ringURLIndex > -1;
-    const posnLabel = document.getElementById("posn-label");
 
     document.body.classList.toggle("inring", inRing);
     if (inRing) {
+      const posnLabel = document.getElementById("posn-label");
+      const backButton = document.getElementById("back-btn");
+      const nextButton = document.getElementById("next-btn");
+      const backIndex = this.ringURLIndex <= 0 ? this.ringURLCount - 1 : this.ringURLIndex - 1;
+      const nextIndex = this.ringURLIndex >= this.ringURLCount - 1 ? 0 : this.ringURLIndex + 1;
+
       posnLabel.textContent = `${1+this.ringURLIndex} of ${this.ringURLCount}`;
+      backButton.title = `Via ${this.entriesList[backIndex].who ?? "anonymous" }`;
+      nextButton.title = `Via ${this.entriesList[nextIndex].who ?? "anonymous" }`;
     }
   }
 }

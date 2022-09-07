@@ -73,6 +73,8 @@ class WebRingManager {
       this.ringCollection.reset();
     }
     this.ringCollection = ringCollection;
+    ringCollection.on("error", this);
+
     const initialDataLoaded = ringCollection.watchRemoteData(() => {
       // called whenever remote collection changes
       console.log("watchRemoteData callback, calling onRingDataUpdate");
@@ -95,6 +97,14 @@ class WebRingManager {
   }
   get currentURLIndex() {
     return this.currentURL ? this.ringURLs.indexOf(this.currentURL) : -1;
+  }
+
+  handleTopic(topic, eventData) {
+    switch (topic) {
+      case "error":
+        console.error("Error:", eventData);
+        break;
+    }
   }
 
   onMessage(request, sender, sendResponse) {
@@ -209,6 +219,7 @@ class WebRingManager {
       browser.runtime.sendMessage({
         action: MESSAGE_DATA_UPDATE,
         data: {
+          entriesList: Array.from(this.ringCollection.values()),
           ringURLIndex: this.currentURLIndex,
           ringURLCount: this.ringURLs.length,
         }
