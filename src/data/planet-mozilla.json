@@ -1,0 +1,893 @@
+{
+  "title": "Planet Mozilla",
+  "entries": [
+    {
+      "who": "Aaron Klotz",
+      "url": "https://dblohm7.ca/"
+    },
+    {
+      "who": "About:Community",
+      "url": "https://blog.mozilla.org/community"
+    },
+    {
+      "who": "Adam Munter",
+      "url": "https://adammuntner.wordpress.com/"
+    },
+    {
+      "who": "Adam Roach",
+      "url": "https://sporadicdispatches.blogspot.com/"
+    },
+    {
+      "who": "Adam Stevenson",
+      "url": "http://bornawesome.com/adam/"
+    },
+    {
+      "who": "Adblock Plus",
+      "url": "https://blog.adblockplus.org/"
+    },
+    {
+      "who": "Adrian Gaudebert",
+      "url": "http://adrian.gaudebert.fr/blog/"
+    },
+    {
+      "who": "Alessio Placitelli",
+      "url": "https://www.a2p.it/categories/mozilla/"
+    },
+    {
+      "who": "Alex Gibson",
+      "url": "https://alxgbsn.co.uk/"
+    },
+    {
+      "who": "Alexander Surkov",
+      "url": "http://asurkov.blogspot.com/"
+    },
+    {
+      "who": "Alexandre Poirot",
+      "url": "http://techno-barje.fr/"
+    },
+    {
+      "who": "Allen Wirfs-Brock",
+      "url": "https://wirfs-brock.com/allen"
+    },
+    {
+      "who": "Alon Zakai",
+      "url": "http://mozakai.blogspot.com/"
+    },
+    {
+      "who": "Amy Tsay",
+      "url": "https://mozamy.wordpress.com/"
+    },
+    {
+      "who": "Andreas Farre",
+      "url": "https://farre.github.io/blog"
+    },
+    {
+      "who": "Andrew Halberstadt",
+      "url": "https://ahal.ca/tags/mozilla/"
+    },
+    {
+      "who": "Andrew Sutherland",
+      "url": "https://www.visophyte.org/blog"
+    },
+    {
+      "who": "Andrew Truong",
+      "url": "http://feer56.blogspot.com/"
+    },
+    {
+      "who": "Andrzej Hunt",
+      "url": "https://www.ahunt.org/"
+    },
+    {
+      "who": "Anjana Vakil",
+      "url": "http://vakila.github.io/"
+    },
+    {
+      "who": "Anthony Hughes",
+      "url": "https://ashughes.com/"
+    },
+    {
+      "who": "Anthony Ricaud",
+      "url": "https://ricaud.me/blog/"
+    },
+    {
+      "who": "Asa Dotzler",
+      "url": "https://asadotzler.com/"
+    },
+    {
+      "who": "Axel Hecht",
+      "url": "https://blog.mozilla.org/axel"
+    },
+    {
+      "who": "Bas Schouten",
+      "url": "https://www.basschouten.com/blog1.php"
+    },
+    {
+      "who": "Beatriz Rizental",
+      "url": "https://brizental.github.io/"
+    },
+    {
+      "who": "Ben Galbraith",
+      "url": "https://blog.bengalbraith.com/"
+    },
+    {
+      "who": "Ben Hearsum",
+      "url": "http://hearsum.ca/"
+    },
+    {
+      "who": "Benjamin Bouvier",
+      "url": "https://blog.benj.me/"
+    },
+    {
+      "who": "Bill McCloskey",
+      "url": "https://billmccloskey.wordpress.com/"
+    },
+    {
+      "who": "Bill Walker",
+      "url": "https://softwarewalker.com/"
+    },
+    {
+      "who": "Blake Kaplan",
+      "url": "https://blog.mozilla.org/mrbkap"
+    },
+    {
+      "who": "Blake Winton",
+      "url": "https://bwinton.github.io/weblog.latte.ca/"
+    },
+    {
+      "who": "Bobby Holley",
+      "url": "http://bholley.net/"
+    },
+    {
+      "who": "Botond Ballo",
+      "url": "https://botondballo.wordpress.com/"
+    },
+    {
+      "who": "Brian Birtles",
+      "url": "https://birtles.wordpress.com/"
+    },
+    {
+      "who": "Bryce Van Dyk",
+      "url": "https://www.brycevandyk.com/"
+    },
+    {
+      "who": "Byron Jones",
+      "url": "https://globau.wordpress.com/"
+    },
+    {
+      "who": "Cameron McCormack",
+      "url": "https://mcc.id.au/"
+    },
+    {
+      "who": "Carsten Book",
+      "url": "https://blog.mozilla.org/tomcat"
+    },
+    {
+      "who": "Chelsea Novak",
+      "url": "https://chelseanovak.wordpress.com/"
+    },
+    {
+      "who": "Chris AtLee",
+      "url": "http://atlee.ca/blog/categories/rss.xml"
+    },
+    {
+      "who": "Chris Cooper",
+      "url": "https://coopcoopbware.tumblr.com/"
+    },
+    {
+      "who": "Chris H-C",
+      "url": "https://chuttenblog.wordpress.com/"
+    },
+    {
+      "who": "Chris Ilias",
+      "url": "https://ilias.ca/blog"
+    },
+    {
+      "who": "Chris Pearce",
+      "url": "http://blog.pearce.org.nz/search/label/mozilla"
+    },
+    {
+      "who": "Christian Legnitto",
+      "url": "https://christian.legnitto.com/blog"
+    },
+    {
+      "who": "Daniel Glazman",
+      "url": "http://www.glazman.org/weblog/dotclear/index.php"
+    },
+    {
+      "who": "Daniel Holbert",
+      "url": "http://blog.dholbert.org/search/label/mozilla"
+    },
+    {
+      "who": "Daniel Stenberg",
+      "url": "https://daniel.haxx.se/blog"
+    },
+    {
+      "who": "Dave Hunt",
+      "url": "http://davehunt.co.uk/"
+    },
+    {
+      "who": "David Bryant",
+      "url": "https://medium.com/@david_bryant?source=rss-b6142bb477cd------2"
+    },
+    {
+      "who": "David Camp",
+      "url": "https://campd.wordpress.com/"
+    },
+    {
+      "who": "David Humphrey",
+      "url": "https://blog.humphd.org/"
+    },
+    {
+      "who": "David Teller",
+      "url": "https://yoric.github.io/categories/mozilla/"
+    },
+    {
+      "who": "David Weir (satdav)",
+      "url": "https://satdavmozilla.wordpress.com/"
+    },
+    {
+      "who": "Dennis Schubert",
+      "url": "https://overengineer.dev/"
+    },
+    {
+      "who": "Dietrich Ayala",
+      "url": "https://autonome.wordpress.com/"
+    },
+    {
+      "who": "Don Marti",
+      "url": "https://blog.zgp.org/"
+    },
+    {
+      "who": "Doug Belshaw",
+      "url": "http://literaci.es/"
+    },
+    {
+      "who": "Dustin J. Mitchell",
+      "url": "http://code.v.igoro.us/"
+    },
+    {
+      "who": "Edward Lee",
+      "url": "https://ed.agadak.net/"
+    },
+    {
+      "who": "Eitan Isaacson",
+      "url": "https://blog.monotonous.org/"
+    },
+    {
+      "who": "Eric Rahm",
+      "url": "http://www.erahm.org/"
+    },
+    {
+      "who": "Erica Jostedt",
+      "url": "https://ejsf22.wordpress.com/"
+    },
+    {
+      "who": "Felipe Gomes",
+      "url": "https://felipe.wordpress.com/"
+    },
+    {
+      "who": "Firefox Browser Architecture",
+      "url": "https://mozilla.github.io/firefox-browser-architecture"
+    },
+    {
+      "who": "Firefox Test Engineering",
+      "url": "https://blog.mozilla.org/fxtesteng/feed/"
+    },
+    {
+      "who": "Firefox Test Pilot",
+      "url": "https://medium.com/firefox-test-pilot?source=rss----46b1a2ddb811---4"
+    },
+    {
+      "who": "Firefox UX",
+      "url": "https://blog.mozilla.org/ux"
+    },
+    {
+      "who": "Florian Quèze",
+      "url": "http://blog.queze.net/"
+    },
+    {
+      "who": "Francesco Lodolo",
+      "url": "https://www.yetanothertechblog.com/"
+    },
+    {
+      "who": "François Marier",
+      "url": "https://feeding.cloud.geek.nz/tags/mozilla/"
+    },
+    {
+      "who": "Frederik Braun",
+      "url": "https://frederik-braun.com/"
+    },
+    {
+      "who": "Gareth Aye",
+      "url": "https://medium.com/@garethaye?source=rss-3e425d04c8c------2"
+    },
+    {
+      "who": "Gary Kwong",
+      "url": "https://garykwong.wordpress.com/"
+    },
+    {
+      "who": "Georg Fritzsche",
+      "url": "https://medium.com/georg-fritzsche?source=rss----9eb1bc803268---4"
+    },
+    {
+      "who": "George Roter",
+      "url": "https://georgeroter.org/"
+    },
+    {
+      "who": "Gijs Kruitbosch",
+      "url": "https://www.gijsk.com/blog"
+    },
+    {
+      "who": "Giorgio Maone",
+      "url": "https://hackademix.net/"
+    },
+    {
+      "who": "Giorgos Logiotatidis",
+      "url": "https://giorgos.sealabs.net/"
+    },
+    {
+      "who": "Gregory Szorc",
+      "url": "http://gregoryszorc.com/blog"
+    },
+    {
+      "who": "Hannes Verschore",
+      "url": "https://h4writer.com/"
+    },
+    {
+      "who": "Henri Sivonen",
+      "url": "https://hsivonen.fi/"
+    },
+    {
+      "who": "Henrik Mitsch",
+      "url": "https://wiltw.io/"
+    },
+    {
+      "who": "Henrik Skupin",
+      "url": "https://www.hskupin.info/"
+    },
+    {
+      "who": "Honza Bambas",
+      "url": "https://www.janbambas.cz/tag/mozilla/"
+    },
+    {
+      "who": "J.C. Jones",
+      "url": "https://insufficient.coffee/"
+    },
+    {
+      "who": "Jack Moffitt",
+      "url": "https://metajack.im/"
+    },
+    {
+      "who": "James Hugman",
+      "url": "http://www.jhugman.com/tag/mozilla"
+    },
+    {
+      "who": "Jan Odvarko",
+      "url": "http://www.softwareishard.com/blog"
+    },
+    {
+      "who": "Jan de Mooij",
+      "url": "https://jandemooij.nl/blog/"
+    },
+    {
+      "who": "Jan-Erik Rediger",
+      "url": "https://fnordig.de/"
+    },
+    {
+      "who": "Jared Hirsch",
+      "url": "http://6a68.net/"
+    },
+    {
+      "who": "Jared Wein",
+      "url": "https://msujaws.wordpress.com/"
+    },
+    {
+      "who": "JavaScript at Mozilla",
+      "url": "https://blog.mozilla.org/javascript"
+    },
+    {
+      "who": "Jeff Klukas",
+      "url": "https://jeff.klukas.net/tags/mozilla/"
+    },
+    {
+      "who": "Jeff Muizelaar",
+      "url": "http://muizelaar.blogspot.com/"
+    },
+    {
+      "who": "Jeff Walden",
+      "url": "http://whereswalden.com/"
+    },
+    {
+      "who": "Jesse McCrosky",
+      "url": "https://wrongbutuseful.com/"
+    },
+    {
+      "who": "Jessilyn Davis",
+      "url": "https://jessilyndavis.wordpress.com/"
+    },
+    {
+      "who": "Jet Villegas",
+      "url": "http://junglecode.net/"
+    },
+    {
+      "who": "Jim Blandy",
+      "url": "https://itcouldbesomuchbetter.wordpress.com/"
+    },
+    {
+      "who": "Jim Chen",
+      "url": "https://www.jnchen.com/"
+    },
+    {
+      "who": "Joe Walker",
+      "url": "http://incompleteness.me/blog"
+    },
+    {
+      "who": "Joel Maher",
+      "url": "https://elvis314.wordpress.com/"
+    },
+    {
+      "who": "John Ford",
+      "url": "http://blog.johnford.org/search/label/mozilla"
+    },
+    {
+      "who": "John Slater",
+      "url": "https://intothefuzz.com/"
+    },
+    {
+      "who": "Jonas Finnemann Jensen",
+      "url": "https://jonasfj.dk/"
+    },
+    {
+      "who": "Jonathan Watt",
+      "url": "https://jwatt.org/"
+    },
+    {
+      "who": "Josh Matthews",
+      "url": "https://www.joshmatthews.net/blog"
+    },
+    {
+      "who": "Joshua Cranmer",
+      "url": "http://quetzalcoatal.blogspot.com/"
+    },
+    {
+      "who": "Julia Vallera",
+      "url": "http://www.juliavallera.com/blog"
+    },
+    {
+      "who": "Julian Seward",
+      "url": "https://blog.mozilla.org/jseward"
+    },
+    {
+      "who": "Julien Pagès",
+      "url": "https://parkouss.wordpress.com/"
+    },
+    {
+      "who": "Julien Vehent",
+      "url": "https://j.vehent.org/blog/index.php?"
+    },
+    {
+      "who": "Justin Crawford",
+      "url": "https://hoosteeno.com/"
+    },
+    {
+      "who": "Justin Dolske",
+      "url": "https://dolske.wordpress.com/"
+    },
+    {
+      "who": "K Lars Lohn",
+      "url": "http://www.twobraids.com/search/label/Mozilla"
+    },
+    {
+      "who": "Kartikaya Gupta",
+      "url": "https://staktrace.com/spout"
+    },
+    {
+      "who": "Kev Needham",
+      "url": "https://kev.needham.ca/"
+    },
+    {
+      "who": "Kevin Brosnan",
+      "url": "https://www.kevinbrosnan.net/"
+    },
+    {
+      "who": "Kim Moir",
+      "url": "https://kimmoir.blog/"
+    },
+    {
+      "who": "L. David Baron",
+      "url": "https://dbaron.org/log/"
+    },
+    {
+      "who": "Larissa Shapiro",
+      "url": "http://contentsmayvary.blogspot.com/feeds/posts/default"
+    },
+    {
+      "who": "Lauren Zugai",
+      "url": "https://dev.to/lzoog"
+    },
+    {
+      "who": "Lawrence Mandel",
+      "url": "https://lawrencemandel.com/"
+    },
+    {
+      "who": "Liz Henry",
+      "url": "https://bookmaniac.org/"
+    },
+    {
+      "who": "Luis Villa",
+      "url": "https://lu.is/"
+    },
+    {
+      "who": "Luke Wagner",
+      "url": "https://blog.mozilla.org/luke"
+    },
+    {
+      "who": "Maja Frydrychowicz",
+      "url": "https://www.erranderr.com/blog/"
+    },
+    {
+      "who": "Marco Bonardo",
+      "url": "http://mak77.github.io/"
+    },
+    {
+      "who": "Marco Castelluccio",
+      "url": "https://marco-c.github.io/"
+    },
+    {
+      "who": "Marco Zehe",
+      "url": "https://www.marcozehe.de/"
+    },
+    {
+      "who": "Mark Banner",
+      "url": "https://www.thebanners.uk/standard8"
+    },
+    {
+      "who": "Mark Mayo",
+      "url": "https://medium.com/@mmayo?source=rss-5c6a321cb3bd------2"
+    },
+    {
+      "who": "Mark Reid",
+      "url": "http://mreid-moz.github.io/"
+    },
+    {
+      "who": "Mark Surman",
+      "url": "https://marksurman.commons.ca/"
+    },
+    {
+      "who": "Markus Stange",
+      "url": "https://markusstange.wordpress.com/"
+    },
+    {
+      "who": "Martin Giger",
+      "url": "https://humanoids.be/log/category/software/freeware/opensource/mozilla/?lang=de_depage2page7page2page2page2page7page3page3page2page7page3page3page7page3page3"
+    },
+    {
+      "who": "Martin Thompson",
+      "url": "https://lowentropy.net/"
+    },
+    {
+      "who": "Matjaž Horvat",
+      "url": "http://horv.at/blog"
+    },
+    {
+      "who": "Matt Brubeck",
+      "url": "https://limpet.net/mbrubeck/"
+    },
+    {
+      "who": "Matthew Noorenberghe",
+      "url": "https://matthew.noorenberghe.com/tags/mozilla"
+    },
+    {
+      "who": "Max Kanat-Alexander",
+      "url": "https://avatraxiom.livejournal.com/"
+    },
+    {
+      "who": "Michael Comella",
+      "url": "http://mcomella.xyz/"
+    },
+    {
+      "who": "Michael Droettboom",
+      "url": "http://droettboom.com/"
+    },
+    {
+      "who": "Michael Kaply",
+      "url": "https://mike.kaply.com/"
+    },
+    {
+      "who": "Michael Kelly",
+      "url": "http://www.mkelly.me/"
+    },
+    {
+      "who": "Michelle Thorne",
+      "url": "https://michellethorne.cc/"
+    },
+    {
+      "who": "Mike Conley",
+      "url": "https://mikeconley.ca/blog"
+    },
+    {
+      "who": "Mike Hoye",
+      "url": "https://exple.tive.org/blarg"
+    },
+    {
+      "who": "Mike Shal",
+      "url": "http://gittup.org/blog/"
+    },
+    {
+      "who": "Mike Taylor",
+      "url": "https://miketaylr.com/posts"
+    },
+    {
+      "who": "Mitchell Baker",
+      "url": "https://blog.lizardwrangler.com/"
+    },
+    {
+      "who": "Mozilla Attack & Defense",
+      "url": "https://blog.mozilla.org/attack-and-defense"
+    },
+    {
+      "who": "Mozilla B-Team",
+      "url": "https://mozilla-bteam.tumblr.com/"
+    },
+    {
+      "who": "Mozilla Cloud Services Blog",
+      "url": "https://blog.mozilla.org/services"
+    },
+    {
+      "who": "Mozilla Future Releases Blog",
+      "url": "https://blog.mozilla.org/futurereleases/"
+    },
+    {
+      "who": "Mozilla GFX",
+      "url": "https://mozillagfx.wordpress.com/"
+    },
+    {
+      "who": "Mozilla Marketing Engineering & Ops Blog",
+      "url": "https://mozilla.github.io/meao/"
+    },
+    {
+      "who": "Mozilla Open Design Blog",
+      "url": "https://blog.mozilla.org/opendesign/"
+    },
+    {
+      "who": "Mozilla Open Innovation Team",
+      "url": "https://medium.com/mozilla-open-innovation?source=rss----410b8dc3986d---4"
+    },
+    {
+      "who": "Mozilla Release Management Team",
+      "url": "https://release.mozilla.org/"
+    },
+    {
+      "who": "Mozilla Reps Community",
+      "url": "https://blog.mozilla.org/mozillareps"
+    },
+    {
+      "who": "Mozilla Security Blog",
+      "url": "https://blog.mozilla.org/security/"
+    },
+    {
+      "who": "Mozilla VR Blog",
+      "url": "https://blog.mozvr.com/"
+    },
+    {
+      "who": "Mozilla WebDev Community",
+      "url": "https://blog.mozilla.org/webdev/"
+    },
+    {
+      "who": "Myk Melez",
+      "url": "https://mykzilla.org/"
+    },
+    {
+      "who": "Nathan Froyd",
+      "url": "https://blog.mozilla.org/nfroyd"
+    },
+    {
+      "who": "Neil Deakin",
+      "url": "https://enndeakin.wordpress.com/"
+    },
+    {
+      "who": "Nicholas Nethercote",
+      "url": "https://blog.mozilla.org/nnethercote"
+    },
+    {
+      "who": "Nick Alexander",
+      "url": "https://www.ncalexander.net/blog/"
+    },
+    {
+      "who": "Nick Desaulniers",
+      "url": "http://nickdesaulniers.github.io/"
+    },
+    {
+      "who": "Nick Fitzgerald",
+      "url": "http://fitzgeraldnick.com/"
+    },
+    {
+      "who": "Nick Nguyen",
+      "url": "http://osunick.com/?feed=rss2"
+    },
+    {
+      "who": "Nick Thomas",
+      "url": "https://ftangftang.wordpress.com/"
+    },
+    {
+      "who": "Nika Layzell",
+      "url": "https://mystor.github.io/"
+    },
+    {
+      "who": "Onno Ekker",
+      "url": "https://oeekker.wordpress.com/"
+    },
+    {
+      "who": "Panos Astithas",
+      "url": "http://blog.astithas.com/"
+    },
+    {
+      "who": "Patrick Cloke",
+      "url": "https://patrick.cloke.us/"
+    },
+    {
+      "who": "Patrick Finch",
+      "url": "https://patrickfinch.com/"
+    },
+    {
+      "who": "Patrick McManus",
+      "url": "http://bitsup.blogspot.com/search/label/firefox"
+    },
+    {
+      "who": "Paul Adenot",
+      "url": "https://blog.paul.cx/tags/mozilla/index.xml"
+    },
+    {
+      "who": "Paul Bone",
+      "url": "https://paul.bone.id.au/"
+    },
+    {
+      "who": "Paul McLanahan",
+      "url": "https://pmac.io/tags/mozilla/"
+    },
+    {
+      "who": "Pete Moore",
+      "url": "https://petemoore.tumblr.com/"
+    },
+    {
+      "who": "Pomax",
+      "url": "http://pomax.github.io/"
+    },
+    {
+      "who": "Princi Vershwal",
+      "url": "https://medium.com/@vershwal?source=rss-a18d6bdbacf3------2"
+    },
+    {
+      "who": "Project Tofino",
+      "url": "https://medium.com/project-tofino?source=rss----b6989d965a26---4"
+    },
+    {
+      "who": "QMO",
+      "url": "https://quality.mozilla.org/"
+    },
+    {
+      "who": "Rafael Ebron",
+      "url": "https://www.rebron.org/feed/"
+    },
+    {
+      "who": "Raphael Pierzina",
+      "url": "https://raphael.codes/tags/mozilla/"
+    },
+    {
+      "who": "Robert Kaiser",
+      "url": "https://home.kairo.at/?d=w&i=1&m=v&f.lang=en"
+    },
+    {
+      "who": "Robert O'Callahan",
+      "url": "http://robert.ocallahan.org/search/label/Mozilla"
+    },
+    {
+      "who": "Rodrigo Silveira",
+      "url": "http://blog.rodms.com/"
+    },
+    {
+      "who": "Rubén Martín",
+      "url": "https://www.nukeador.com/"
+    },
+    {
+      "who": "Ryan Harter",
+      "url": "https://blog.harterrt.com/"
+    },
+    {
+      "who": "Sam Foster",
+      "url": "https://www.sam-i-am.com/blog"
+    },
+    {
+      "who": "Sara Haghdoosti",
+      "url": "https://campaignmusings.wordpress.com/"
+    },
+    {
+      "who": "Selena Deckelmann",
+      "url": "http://www.chesnok.com/daily"
+    },
+    {
+      "who": "Shane Tomlinson",
+      "url": "https://shanetomlinson.com/"
+    },
+    {
+      "who": "Shing Lyu",
+      "url": "https://shinglyu.com/"
+    },
+    {
+      "who": "Shruti Jasoria",
+      "url": "https://sjasoria.github.io/"
+    },
+    {
+      "who": "Stuart Colville",
+      "url": "https://muffinresearch.co.uk/"
+    },
+    {
+      "who": "Sylvestre Ledru",
+      "url": "https://sylvestre.ledru.info/blog/"
+    },
+    {
+      "who": "Tantek Çelik",
+      "url": "https://tantek.com/"
+    },
+    {
+      "who": "Tanvi Vyas",
+      "url": "https://blog.mozilla.org/tanvi/"
+    },
+    {
+      "who": "Ted Mielczarek",
+      "url": "https://blog.mozilla.org/ted"
+    },
+    {
+      "who": "The Servo Blog",
+      "url": "https://blog.servo.org/"
+    },
+    {
+      "who": "Thunderbird Blog",
+      "url": "https://blog.thunderbird.net/feed/"
+    },
+    {
+      "who": "Théo Chevalier",
+      "url": "https://trutalo.com/feed/"
+    },
+    {
+      "who": "Tim Guan-tin Chien",
+      "url": "https://blog.timdream.org/"
+    },
+    {
+      "who": "Tim Taubert",
+      "url": "https://timtaubert.de/"
+    },
+    {
+      "who": "Tom Schuster",
+      "url": "https://javascript-reverse.tumblr.com/"
+    },
+    {
+      "who": "Tyler Downer",
+      "url": "https://tylerdowner.wordpress.com/"
+    },
+    {
+      "who": "Wil Clouser",
+      "url": "http://http//micropipes.com.s3-website.us-east-1.amazonaws.com/"
+    },
+    {
+      "who": "William Durand",
+      "url": "https://williamdurand.fr/"
+    },
+    {
+      "who": "William Lachance",
+      "url": "https://wrla.ch/tags/Mozilla.html"
+    },
+    {
+      "who": "William Quiviger",
+      "url": "https://somethin-else.org/feed/"
+    },
+    {
+      "who": "Yura Zenevich",
+      "url": "http://yzen.github.io/"
+    },
+    {
+      "who": "Zibi Braniecki",
+      "url": "https://diary.braniecki.net/"
+    }
+  ]
+}

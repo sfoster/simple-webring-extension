@@ -5,6 +5,11 @@
       "title": "Example webring",
       "collectionURL": "default.json",
       "who": "Sam"
+    },
+    {
+      "id": "planet-mozilla",
+      "title": "Planet Mozilla",
+      "collectionURL": "planet-mozilla.json"
     }
   ]
 }

@@ -1,4 +1,6 @@
 {
+  "title": "Example webring",
+  "who": "Sam",
   "entries": [
     {
       "url": "https://searchfox.org/",
