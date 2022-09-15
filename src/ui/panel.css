@@ -4,6 +4,7 @@
   --yellow: hsl(60, 100%, 75%);
   --green: hsl(120, 100%, 75%);
 
+  --border-color: #ccc;
   --rainbow: linear-gradient(45deg, var(--coral), var(--peach) 15%, var(--yellow) 65%, var(--green) 100%);
 }
 
@@ -14,9 +15,12 @@ html, body {
 }
 body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-family: sans-serif;
   text-align: center;
+  height: 100vh;
+  min-width: 250px;
+  min-height: 250px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,12 +30,54 @@ body {
   }
 }
 
+.panel-ui {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  transition: opacity 0.4s;
+  padding-top: 3em;
+}
+
+.panel-ui.loading {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+details#metadata {
+  box-shadow: 0 1px 10px rgba(0,0,0,0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+details#metadata > summary {
+  list-style-type: none;
+  background: url('chrome://global/skin/icons/arrow-down.svg') no-repeat top 13px right 12px;
+  background-size: 16px;
+  padding-inline: 30px;
+  padding-block: 8px;
+  overflow: ellipsis;
+  cursor: pointer;
+}
+
+details#metadata > summary:hover {
+  box-shadow: 0 1px 10px rgba(0,0,0,0.75);
+}
+
+details#metadata[open] > summary {
+  background-image: url('chrome://global/skin/icons/arrow-up.svg');
+}
+
 h1 {
-  margin-block: 0 0.5em;
+  display: inline-block;
+  margin-block: 0;
   padding: 0.2em 1em;
   font-size: 1em;
-  box-shadow: 5px 2px 5px 0px rgba(0,0,0,0.75);
+  font-weight: normal;
 }
+
 #toolbar {
   flex: 1 1 auto;
   display: flex;
@@ -66,13 +112,45 @@ button {
 .inring #jump-btn {
   display: none;
 }
-body:not(.inring) #jump-btn {
+.panel-ui:not(.inring) #jump-btn {
   background: var(--rainbow);
   border: 2px solid black;
   border-radius: 5px;
   display: block;
   padding: 0.5em;
 }
-body:not(.inring) :is(#back-btn, #posn-label, #next-btn) {
+.panel-ui:not(.inring) :is(#back-btn, #posn-label, #next-btn) {
   display: none;
+}
+
+select#ring-chooser {
+  margin-inline: 0;
+  border: none;
+  width: 100%;
+}
+
+select#ring-chooser option {
+  padding-block: 4px;
+  padding-inline: 16px 8px;
+  border: 1px solid #aaa;
+  border-bottom-style: none;
+  background-color: white;
+}
+
+select#ring-chooser option:hover {
+  border-color: #999;
+  background-color: color-mix(in srgb, var(--yellow) 30%, white);
+}
+select#ring-chooser option[selected] {
+  background-color: color-mix(in srgb, var(--peach) 30%, white);
+}
+
+.panel-ui > footer {
+  border-top: 1px solid var(--border-color);
+  padding-block: 4px;
+  flex-basis: max-content;
+  box-shadow: 0 -1px 10px rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 0.8em;
 }

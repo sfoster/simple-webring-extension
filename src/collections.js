@@ -164,7 +164,7 @@ class RemoteMap extends EventEmitterMixin(Map) {
       let idProperty = this.constructor.itemIdProperty;
       for (let entry of data.entries) {
         this.set(entry[idProperty], entry);
-        console.log(this.constructor.name + ".populate, add entry: id:", entry[idProperty], "entry:", this.get(entry[idProperty]));
+        // console.log(this.constructor.name + ".populate, add entry: id:", entry[idProperty], "entry:", this.get(entry[idProperty]));
       }
     };
   }
@@ -180,22 +180,12 @@ window.RemoteMap = RemoteMap;
 class URLCollection extends RemoteMap {
   static urlOptionsProperty = "collectionURL";
 
-  // set dataURL(url) {
-  //   console.log("dataURL setter, setting url:", url);
-  //   this._dataURL = this._prepareDataURL(url);
-  //   console.log("dataURL setter, result:", this._dataURL);
-  //   if (this._refreshTimerID) {
-  //     // reset and re-trigger the timer
-  //     // maybe this needs to move to the consumer
-  //     this.watchRemoteData();
-  //   }
-  // }
   fetchData() {
     this._previousData = this.toJSON(2);
     this._lastFetched = Date.now();
     return this._fetchData().then(() => {
       let newSnapshot = this.toJSON(2);
-      console.log("fetchData, old, new:", this._previousData, newSnapshot);
+      // console.log("fetchData, old, new:", this._previousData, newSnapshot);
       if (newSnapshot == this._previousData) {
         console.log("No change to remote ring data:", this.dataURL, this._previousData);
       } else {

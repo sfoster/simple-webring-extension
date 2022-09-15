@@ -1,4 +1,5 @@
 const MESSAGE_ACTION = "ringAction";
+const MESSAGE_REQUEST = "ringRequest";
 const MESSAGE_DATA_UPDATE = "dataUpdate";
 const MESSAGE_READY = "panelReady";
 
@@ -13,6 +14,9 @@ async function initialize() {
 
   if (!isInitialized) {
     ringRegistry = window.ringRegistry = new RingRegistry(window.config);
+    ringRegistry.on("error", (errorDetails) => {
+      console.error("Got error loading registry data:", errorDetails);
+    });
     console.log("ringRegistry created");
 
     webRingManager = window.webRingManager = new WebRingManager({
@@ -42,11 +46,8 @@ async function initialize() {
   console.log("ringRegistry data fetched, default entries:", ringRegistry.get("default"));
 
   // TODO: we could store the current selected ring id and retrieve it here
-  currentRingConfig = ringRegistry.get(config.selectedRing);
-  ringCollection = window.ringCollection = new WatchedURLCollection(currentRingConfig, ringRegistry.dataURL);
-  console.log("ringCollection:", ringCollection);
-
-  await webRingManager.setRingCollection(ringCollection);
+  const ringId = config.selectedRing;
+  await webRingManager.setRingCollection(ringId);
 }
 
 browser.runtime.onStartup.addListener(initialize);
@@ -64,11 +65,20 @@ class WebRingManager {
 
     this.gotCurrentTab = browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
       if (tabs[0]) {
-        this.currentTabId= tabs[0].id;
+        this.currentTabId = tabs[0].id;
       }
     });
   }
-  setRingCollection(ringCollection) {
+  setRingCollection(ringId) {
+    let ringConfig = ringRegistry.get(ringId);
+    if (!ringConfig) {
+      console.warn("No such collection in the current registry: ", ringId);
+      return;
+    }
+    currentRingConfig = ringConfig;
+    ringCollection = window.ringCollection = new WatchedURLCollection(currentRingConfig, ringRegistry.dataURL);
+    console.log("updated ringCollection:", ringId, ringCollection);
+
     if (this.ringCollection) {
       this.ringCollection.reset();
     }
@@ -89,6 +99,8 @@ class WebRingManager {
         this.updateIcon("error");
       } else {
         console.log("fetchData result:", this.ringCollection);
+        this.onRingChanged();
+        this.onRingDataUpdate();
       }
     })
   }
@@ -108,12 +120,16 @@ class WebRingManager {
   }
 
   onMessage(request, sender, sendResponse) {
+    console.log("onMessage:", request.action, request);
     if (request.action == MESSAGE_ACTION) {
       this.handleActionRequest(request);
     }
     else if (request.action == MESSAGE_READY) {
       this.panelUIReady = true;
       this.onRingDataUpdate();
+    }
+    else if (request.action == MESSAGE_REQUEST) {
+      this.setRingCollection(request.data);
     }
   }
 
@@ -124,10 +140,8 @@ class WebRingManager {
       return;
     }
     let url = this.sanitizeURL(tab.url);
-    console.log(`sanitized: ${tab.url} to ${url}`);
-    if (url && this.currentURL != url) {
-      this.changeCurrentURL(url);
-    }
+    // console.log(`sanitized: ${tab.url} to ${url}`);
+    this.changeCurrentURL(url);
   }
   sanitizeURL(_url) {
     if (_url) {
@@ -143,7 +157,7 @@ class WebRingManager {
     return _url;
   }
   changeCurrentURL(url) {
-    console.log(`changeCurrentURL, was: ${this.currentURL}, to: ${url}`);
+    // console.log(`changeCurrentURL, was: ${this.currentURL}, to: ${url}`);
     if (url !== "about:blank") {
       this.currentURL = url;
     }
@@ -212,6 +226,16 @@ class WebRingManager {
       }
     }
   }
+  onRingChanged() {
+    console.log("ring changed, update:", this.currentURLIndex, this.currentURLIndex > -1 ? "in-ring" : "default");
+
+    browser.tabs.get(this.currentTabId).then(currentTab => {
+      console.log("ring changed, current tab:", currentTab.url);
+      this.onTabUpdated(currentTab);
+    }).catch(ex => {
+      console.log("ring changed, failed to get current tab:", ex);
+    });
+  }
   onRingDataUpdate() {
     // notify the panel if it has been opened already and has stale data
     console.log("onRingDataUpdate, ringURLs:", this.ringURLs);
@@ -220,8 +244,10 @@ class WebRingManager {
         action: MESSAGE_DATA_UPDATE,
         data: {
           entriesList: Array.from(this.ringCollection.values()),
+          ringsById: Object.fromEntries(ringRegistry),
           ringURLIndex: this.currentURLIndex,
           ringURLCount: this.ringURLs.length,
+          currentRingId: currentRingConfig.id,
         }
       });
     }
