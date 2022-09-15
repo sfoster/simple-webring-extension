@@ -271,7 +271,7 @@
     },
     {
       "who": "Firefox Test Engineering",
-      "url": "https://blog.mozilla.org/fxtesteng/feed/"
+      "url": "https://blog.mozilla.org/fxtesteng/"
     },
     {
       "who": "Firefox Test Pilot",
@@ -499,7 +499,7 @@
     },
     {
       "who": "Larissa Shapiro",
-      "url": "http://contentsmayvary.blogspot.com/feeds/posts/default"
+      "url": "http://contentsmayvary.blogspot.com/"
     },
     {
       "who": "Lauren Zugai",
@@ -702,10 +702,6 @@
       "url": "http://fitzgeraldnick.com/"
     },
     {
-      "who": "Nick Nguyen",
-      "url": "http://osunick.com/?feed=rss2"
-    },
-    {
       "who": "Nick Thomas",
       "url": "https://ftangftang.wordpress.com/"
     },
@@ -767,7 +763,7 @@
     },
     {
       "who": "Rafael Ebron",
-      "url": "https://www.rebron.org/feed/"
+      "url": "https://www.rebron.org/"
     },
     {
       "who": "Raphael Pierzina",
@@ -843,11 +839,11 @@
     },
     {
       "who": "Thunderbird Blog",
-      "url": "https://blog.thunderbird.net/feed/"
+      "url": "https://blog.thunderbird.net/"
     },
     {
       "who": "Théo Chevalier",
-      "url": "https://trutalo.com/feed/"
+      "url": "https://trutalo.com/"
     },
     {
       "who": "Tim Guan-tin Chien",
@@ -879,7 +875,7 @@
     },
     {
       "who": "William Quiviger",
-      "url": "https://somethin-else.org/feed/"
+      "url": "https://somethin-else.org/"
     },
     {
       "who": "Yura Zenevich",
