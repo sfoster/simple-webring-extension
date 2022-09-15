@@ -187,7 +187,7 @@ class URLCollection extends RemoteMap {
       let newSnapshot = this.toJSON(2);
       // console.log("fetchData, old, new:", this._previousData, newSnapshot);
       if (newSnapshot == this._previousData) {
-        console.log("No change to remote ring data:", this.dataURL, this._previousData);
+        console.log("No change to remote ring data:", this.dataURL);
       } else {
         this.emit("change", this);
       }
